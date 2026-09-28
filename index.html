@@ -1,86 +1,390 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Adel | Software Developer & Data Analyst</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --border-color: #334155;
+        }
 
-        <!--==================== UNICONS ====================-->
-        
-        
-        <!--==================== SWIPER CSS ====================-->
-        <link rel="stylesheet" href="">
-        
-        <!--==================== CSS ====================-->
-        <link rel="stylesheet" href="">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        <title>Responsive Portfolio Website</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        header p.subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        header p.bio {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        /* Sections */
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        /* Experience & Education Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .card-subtitle {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .card-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .card-header { flex-direction: column; }
+            .card-date { margin-top: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Youssef Adel</h1>
+            <p class="subtitle">Aspiring Software Developer / Tester | Competitive Problem Solver | Data Analyst</p>
+            <p class="bio">
+                Computer Science student at AASTMT with hands-on experience in Java, C++, SQL, and web development[cite: 1].
+                Former ICPC contestant skilled in time-pressured problem solving[cite: 1]. Passionate about integrating AI into workflows to deliver results-driven software solutions[cite: 1].
+            </p>
+            <div class="social-links">
+                <a href="mailto:youssefmarkos887@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://www.linkedin.com/in/youssef-adel-markos/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+            </div>
         </header>
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
+        <!-- Education Section -->
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Arab Academy for Science, Technology & Maritime Transport (AASTMT)</div>
+                        <div class="card-subtitle">Bachelor's Degree in Computer Science</div>
+                    </div>
+                    <div class="card-date">Aswan, Egypt</div>
+                </div>
+                <p style="color: var(--text-muted);"><strong>GPA:</strong> 3.73 / 4.00</p>
+            </div>
+        </section>
+
+        <!-- Experience & Internships -->
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Activities & Internships</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">ITI Intern</div>
+                        <div class="card-subtitle">Information Technology Institute</div>
+                    </div>
+                    <div class="card-date">08/2026 | Aswan, Egypt</div>
+                </div>
+                <ul>
+                    <li>Gained foundational knowledge in database design, implementation, and management[cite: 1].</li>
+                    <li>Designed Entity-Relationship Diagrams (ERDs) and performed mapping[cite: 1].</li>
+                    <li>Utilized SQL for database integration, reporting, and data analysis[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">DEPI Intern</div>
+                        <div class="card-subtitle">Digital Egypt Pioneers Initiative</div>
+                    </div>
+                    <div class="card-date">07/2026 | Aswan, Egypt</div>
+                </div>
+                <ul>
+                    <li>Developed essential technical and interpersonal soft skills[cite: 1].</li>
+                    <li>Learned freelancing strategies and coached on handling professional freelance gigs[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Build with AI Contestant</div>
+                        <div class="card-subtitle">Google Developer Groups (GDG)</div>
+                    </div>
+                    <div class="card-date">04/2026 | Aswan, Egypt</div>
+                </div>
+                <ul>
+                    <li>Mastered core version control concepts using Git and GitHub[cite: 1].</li>
+                    <li>Built web UI using Google Stitch and developed website code via Antigravity IDE with AI assistance[cite: 1].</li>
+                    <li>Learned to seamlessly integrate AI tools into development workflows to accelerate productivity[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">ICPC Learner</div>
+                        <div class="card-subtitle">International Collegiate Programming Contest</div>
+                    </div>
+                    <div class="card-date">10/2025 | Aswan, Egypt</div>
+                </div>
+                <ul>
+                    <li>Mastered foundational and advanced C++ programming concepts[cite: 1].</li>
+                    <li>Solved complex algorithmic and data structure problem sets under strict time constraints[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2><i class="fas fa-code"></i> Technical & Personal Skills</h2>
+            <div class="skills-grid">
                 
-            </section>
+                <div class="skill-category">
+                    <h3>Programming & Web</h3>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
 
-            <!--==================== ABOUT ====================-->
-            <section class="about section" id="about">
-                
-            </section>
+                <div class="skill-category">
+                    <h3>Databases & Analysis</h3>
+                    <div class="tags">
+                        <span class="tag">Database Design (ERD)</span>
+                        <span class="tag">SQL Analysis</span>
+                        <span class="tag">Reporting & Integration</span>
+                    </div>
+                </div>
 
-            <!--==================== SKILLS ====================-->
-            <section class="skills section" id="skills">
+                <div class="skill-category">
+                    <h3>Tools & Strengths</h3>
+                    <div class="tags">
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">Microsoft Excel / Word / PPT</span>
+                        <span class="tag">Problem Solving</span>
+                    </div>
+                </div>
 
-            </section>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="tags">
+                        <span class="tag">Arabic (Native)</span>
+                        <span class="tag">English (Fluent)</span>
+                        <span class="tag">French (Novice)</span>
+                    </div>
+                </div>
 
-            <!--==================== QUALIFICATION ====================-->
-            <section class="qualification section">
+            </div>
+        </section>
 
-            </section>
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="card">
+                <div class="card-title">Oracle's "AI for You" Certification</div>
+            </div>
+        </section>
 
-            <!--==================== SERVICES ====================-->
-            <section class="services section" id="services">
-                
-            </section>
-
-            <!--==================== PORTFOLIO ====================-->
-            <section class="portfolio section" id="portfolio">
-                
-            </section>
-
-            <!--==================== PROJECT IN MIND ====================-->
-            <section class="project section">
-
-            </section>
-
-            <!--==================== TESTIMONIAL ====================-->
-            <section class="testimonial section">
-                
-            </section>
-
-            <!--==================== CONTACT ME ====================-->
-            <section class="contact section" id="contact">
-
-            </section>
-        </main>
-
-        <!--==================== FOOTER ====================-->
-        <footer class="footer">
-         
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Youssef Adel. Built for GitHub Pages.</p>
         </footer>
-        
-        <!--==================== SCROLL TOP ====================-->
-        
+    </div>
 
-        <!--==================== SWIPER JS ====================-->
-        <script src=""></script>
-
-        <!--==================== MAIN JS ====================-->
-        <script src=""></script>
-    </body>
+</body>
 </html>
