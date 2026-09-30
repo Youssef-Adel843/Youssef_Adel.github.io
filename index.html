@@ -156,7 +156,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 24px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             transition: transform 0.2s ease;
@@ -165,6 +165,21 @@
         .project-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent-color);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #000000;
+        }
+
+        .project-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title {
@@ -332,7 +347,6 @@
         <!-- Header Section with Profile Picture at the Start -->
         <header>
             <div class="header-content">
-                <!-- Second image (about.jpg) positioned right next to your name -->
                 <img src="Assets/Images/about.jpg" alt="Youssef Adel" class="profile-img-top">
                 <div class="header-text">
                     <h1>Youssef Adel</h1>
@@ -341,11 +355,12 @@
             </div>
 
             <p class="bio">
-                Computer Science student at AASTMT experienced in Java, C++, C, SQL, and modern web application development[cite: 1]. Former ICPC contestant skilled in rapid problem solving and AI workflow integration[cite: 1].
+                Computer Science student at AASTMT experienced in Java, C++, C, SQL, and modern web application development. Former ICPC contestant skilled in rapid problem solving and AI workflow integration.
             </p>
 
             <div class="social-links">
-                <a href="mailto:youssefmarkos887@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <!-- Working Email Trigger -->
+                <button onclick="sendEmail()" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</button>
                 <a href="Assets/pdf/Youssef_Adel_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> View CV</a>
                 <button onclick="shareCV()" class="btn"><i class="fas fa-share-alt"></i> Share CV Link</button>
                 <a href="https://www.linkedin.com/in/youssef-adel-markos/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -360,40 +375,52 @@
                 
                 <!-- Project 1: Java Employee Management System -->
                 <div class="project-card">
-                    <div class="project-title">Employee Management System</div>
-                    <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type[cite: 7].</p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">OOP</span>
-                        <span class="tag">Payroll Logic</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Youssef-Adel843/Employee-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                    <img src="Assets/Images/employee_system.PNG" alt="Employee Management Terminal Screenshot" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title">Employee Management System</div>
+                        <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type.</p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Payroll Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Youssef-Adel843/Employee-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2: C Supermarket Management System -->
                 <div class="project-card">
-                    <div class="project-title">Supermarket Management System</div>
-                    <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing[cite: 6].</p>
-                    <div class="tags">
-                        <span class="tag">C</span>
-                        <span class="tag">Data Structures</span>
-                        <span class="tag">System Modes</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Youssef-Adel843/Supermarket-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                    <img src="Assets/Images/supermarket_system.PNG" alt="Supermarket Management Terminal Screenshot" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title">Supermarket Management System</div>
+                        <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing.</p>
+                        <div class="tags">
+                            <span class="tag">C</span>
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">System Modes</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Youssef-Adel843/Supermarket-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 3: Tableau Sales & Profit Dashboard -->
                 <div class="project-card">
-                    <div class="project-title">Tableau Business Intelligence Dashboard</div>
-                    <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits[cite: 8].</p>
-                    <div class="tags">
-                        <span class="tag">Tableau</span>
-                        <span class="tag">Data Analytics</span>
-                        <span class="tag">BI Visualization</span>
+                    <img src="Assets/Images/tableau_dashboard.PNG" alt="Tableau Sales and Profit Dashboard" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title">Tableau Business Intelligence Dashboard</div>
+                        <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits.</p>
+                        <div class="tags">
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Data Analytics</span>
+                            <span class="tag">BI Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Assets/Images/tableau_dashboard.PNG" target="_blank" class="btn"><i class="fas fa-expand"></i> View Full Image</a>
+                        </div>
                     </div>
                 </div>
 
@@ -428,9 +455,9 @@
                     <div class="card-date">08/2026 | Aswan, Egypt</div>
                 </div>
                 <ul>
-                    <li>Gained foundational knowledge in database design, implementation, and management[cite: 1].</li>
-                    <li>Designed Entity-Relationship Diagrams (ERDs) and performed mapping[cite: 1].</li>
-                    <li>Utilized SQL for database integration, reporting, and data analysis[cite: 1].</li>
+                    <li>Gained foundational knowledge in database design, implementation, and management.</li>
+                    <li>Designed Entity-Relationship Diagrams (ERDs) and performed mapping.</li>
+                    <li>Utilized SQL for database integration, reporting, and data analysis.</li>
                 </ul>
             </div>
 
@@ -443,8 +470,8 @@
                     <div class="card-date">07/2026 | Aswan, Egypt</div>
                 </div>
                 <ul>
-                    <li>Developed essential technical and interpersonal soft skills[cite: 1].</li>
-                    <li>Learned freelancing strategies and coached on handling professional freelance gigs[cite: 1].</li>
+                    <li>Developed essential technical and interpersonal soft skills.</li>
+                    <li>Learned freelancing strategies and coached on handling professional freelance gigs.</li>
                 </ul>
             </div>
 
@@ -457,9 +484,9 @@
                     <div class="card-date">04/2026 | Aswan, Egypt</div>
                 </div>
                 <ul>
-                    <li>Mastered core version control concepts using Git and GitHub[cite: 1].</li>
-                    <li>Built web UI using Google Stitch and developed website code via Antigravity IDE with AI assistance[cite: 1].</li>
-                    <li>Learned to seamlessly integrate AI tools into development workflows[cite: 1].</li>
+                    <li>Mastered core version control concepts using Git and GitHub.</li>
+                    <li>Built web UI using Google Stitch and developed website code via Antigravity IDE with AI assistance.</li>
+                    <li>Learned to seamlessly integrate AI tools into development workflows.</li>
                 </ul>
             </div>
 
@@ -472,8 +499,8 @@
                     <div class="card-date">10/2025 | Aswan, Egypt</div>
                 </div>
                 <ul>
-                    <li>Mastered foundational and advanced C++ programming concepts[cite: 1].</li>
-                    <li>Solved complex algorithmic and data structure problem sets under strict time constraints[cite: 1].</li>
+                    <li>Mastered foundational and advanced C++ programming concepts.</li>
+                    <li>Solved complex algorithmic and data structure problem sets under strict time constraints.</li>
                 </ul>
             </div>
         </section>
@@ -524,6 +551,10 @@
     <script src="Assets/js/swiper-bundle.min.js"></script>
     <script src="Assets/js/main.js"></script>
     <script>
+        function sendEmail() {
+            window.location.href = "mailto:youssefmarkos887@gmail.com";
+        }
+
         function shareCV() {
             const cvUrl = new URL('Assets/pdf/Youssef_Adel_CV.pdf', window.location.href).href;
             
