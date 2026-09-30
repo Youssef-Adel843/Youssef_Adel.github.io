@@ -7,8 +7,10 @@
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Local Stylesheet -->
-    <link rel="stylesheet" href="Assests/CSS/Style.css">
+    
+    <!-- CSS Path Updated to match your folder -->
+    <link rel="stylesheet" href="Assets/css/Swiper.Bundle.min.css">
+    <link rel="stylesheet" href="Assets/css/Style.css">
     
     <style>
         :root {
@@ -375,9 +377,8 @@
             </p>
             <div class="social-links">
                 <a href="mailto:youssefmarkos887@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
-                <!-- Direct CV View / Download -->
-                <a href="Assests/pdf/Youssef_Adel_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> View CV</a>
-                <!-- Share CV Button -->
+                <!-- CV Path Updated -->
+                <a href="Assets/pdf/Youssef_Adel_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> View CV</a>
                 <button onclick="shareCV()" class="btn"><i class="fas fa-share-alt"></i> Share CV Link</button>
                 <a href="https://www.linkedin.com/in/youssef-adel-markos/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
@@ -388,31 +389,30 @@
         <section id="gallery">
             <h2><i class="fas fa-images"></i> Gallery Highlights</h2>
             <div class="gallery-grid">
-                <!-- Personal Images -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/perfil.png" alt="Youssef Adel Profile" class="transparent-bg">
+                    <img src="Assets/Images/perfil.png" alt="Youssef Adel Profile" class="transparent-bg">
                     <div class="gallery-caption">Youssef Adel (Cutout)</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Assests/Images/about.jpg" alt="About Youssef">
+                    <img src="Assets/Images/about.jpg" alt="About Youssef">
                     <div class="gallery-caption">About Me</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Assests/Images/project.png" alt="Youssef Projects">
+                    <img src="Assets/Images/project.png" alt="Youssef Projects">
                     <div class="gallery-caption">Community & Work</div>
                 </div>
 
-                <!-- Terminal Screenshots & Dashboards -->
+                <!-- Updated to match your exact file names -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/portfolio1.jpg" alt="Java Employee Management Menu">
+                    <img src="Assets/Images/employee_system.PNG" alt="Java Employee Management Menu">
                     <div class="gallery-caption">Java System Terminal</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Assests/Images/portfolio2.jpg" alt="C Supermarket System Menu">
+                    <img src="Assets/Images/supermarket_system.PNG" alt="C Supermarket System Menu">
                     <div class="gallery-caption">C System Terminal</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Assests/Images/tableau_dashboard.png" alt="Tableau Sales & Profit Dashboard">
+                    <img src="Assets/Images/tableau_dashboard.PNG" alt="Tableau Sales & Profit Dashboard">
                     <div class="gallery-caption">Tableau Sales Dashboard</div>
                 </div>
             </div>
@@ -425,8 +425,7 @@
                 
                 <!-- Project 1: Java Employee Management System -->
                 <div class="project-card">
-                    <!-- Point to your terminal image file inside Assests/Images/ -->
-                    <img src="Assests/Images/portfolio1.jpg" alt="Employee Management Terminal Screenshot" class="project-img">
+                    <img src="Assets/Images/employee_system.PNG" alt="Employee Management Terminal Screenshot" class="project-img">
                     <div class="project-body">
                         <div class="project-title">Employee Management System</div>
                         <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type[cite: 7].</p>
@@ -443,8 +442,7 @@
 
                 <!-- Project 2: C Supermarket Management System -->
                 <div class="project-card">
-                    <!-- Point to your terminal image file inside Assests/Images/ -->
-                    <img src="Assests/Images/portfolio2.jpg" alt="Supermarket Management Terminal Screenshot" class="project-img">
+                    <img src="Assets/Images/supermarket_system.PNG" alt="Supermarket Management Terminal Screenshot" class="project-img">
                     <div class="project-body">
                         <div class="project-title">Supermarket Management System</div>
                         <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing[cite: 6].</p>
@@ -461,18 +459,17 @@
 
                 <!-- Project 3: Tableau Sales & Profit Dashboard -->
                 <div class="project-card">
-                    <!-- Save your 3rd picture in Assests/Images/ tableau_dashboard.png -->
-                    <img src="Assests/Images/tableau_dashboard.png" alt="Tableau Sales and Profit Dashboard" class="project-img">
+                    <img src="Assets/Images/tableau_dashboard.PNG" alt="Tableau Sales and Profit Dashboard" class="project-img">
                     <div class="project-body">
                         <div class="project-title">Tableau Business Intelligence Dashboard</div>
-                        <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits.</p>
+                        <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits[cite: 8].</p>
                         <div class="tags">
                             <span class="tag">Tableau</span>
                             <span class="tag">Data Analytics</span>
                             <span class="tag">BI Visualization</span>
                         </div>
                         <div class="project-links">
-                            <a href="Assests/Images/tableau_dashboard.png" target="_blank" class="btn"><i class="fas fa-expand"></i> View Full Image</a>
+                            <a href="Assets/Images/tableau_dashboard.PNG" target="_blank" class="btn"><i class="fas fa-expand"></i> View Full Image</a>
                         </div>
                     </div>
                 </div>
@@ -600,11 +597,12 @@
     <!-- Toast Notification -->
     <div id="toast">CV Link copied to clipboard!</div>
 
-    <!-- Custom Script -->
-    <script src="Assests/JS/main.js"></script>
+    <!-- JS Paths Updated to match your folder structure -->
+    <script src="Assets/js/swiper-bundle.min.js"></script>
+    <script src="Assets/js/main.js"></script>
     <script>
         function shareCV() {
-            const cvUrl = new URL('Assests/pdf/Youssef_Adel_CV.pdf', window.location.href).href;
+            const cvUrl = new URL('Assets/pdf/Youssef_Adel_CV.pdf', window.location.href).href;
             
             if (navigator.share) {
                 navigator.share({
