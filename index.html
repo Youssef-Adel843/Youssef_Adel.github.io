@@ -7,6 +7,8 @@
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="Assests/CSS/Style.css">
     
     <style>
         :root {
@@ -39,7 +41,7 @@
             padding: 20px;
         }
 
-        /* Header / Hero Section */
+        /* Header Section */
         header {
             text-align: center;
             padding: 50px 20px 30px;
@@ -69,7 +71,7 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -77,7 +79,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 8px;
             background-color: var(--card-bg);
             color: var(--text-color);
@@ -85,6 +87,7 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
             font-size: 0.95rem;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -118,7 +121,7 @@
             color: var(--text-color);
         }
 
-        /* Gallery Section */
+        /* Gallery Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -130,7 +133,8 @@
             border-radius: 10px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            height: 200px;
+            height: 220px;
+            background-color: var(--card-bg);
         }
 
         .gallery-item img {
@@ -138,6 +142,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+        }
+
+        .gallery-item img.transparent-bg {
+            object-fit: contain;
+            padding: 10px;
         }
 
         .gallery-item:hover img {
@@ -179,9 +188,10 @@
 
         .project-img {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
             border-bottom: 1px solid var(--border-color);
+            background-color: #000000;
         }
 
         .project-body {
@@ -205,10 +215,26 @@
             flex-grow: 1;
         }
 
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
         .project-links {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: auto;
         }
 
         .project-links a {
@@ -289,22 +315,39 @@
             margin-bottom: 12px;
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+        /* Toast Popup */
+        #toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 100;
+            bottom: 30px;
+            right: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        .tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
 
-        /* Footer */
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+
         footer {
             text-align: center;
             padding: 30px 0;
@@ -328,48 +371,49 @@
             <h1>Youssef Adel</h1>
             <p class="subtitle">Software Developer | Data Analyst | Problem Solver</p>
             <p class="bio">
-                Computer Science student at AASTMT experienced in Java, C++, SQL, and modern web application development[cite: 1]. Former ICPC contestant skilled in rapid problem solving and AI workflow integration[cite: 1].
+                Computer Science student at AASTMT experienced in Java, C++, C, SQL, and modern web application development[cite: 1]. Former ICPC contestant skilled in rapid problem solving and AI workflow integration[cite: 1].
             </p>
             <div class="social-links">
                 <a href="mailto:youssefmarkos887@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <!-- Direct CV View / Download -->
+                <a href="Assests/pdf/Youssef_Adel_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> View CV</a>
+                <!-- Share CV Button -->
+                <button onclick="shareCV()" class="btn"><i class="fas fa-share-alt"></i> Share CV Link</button>
                 <a href="https://www.linkedin.com/in/youssef-adel-markos/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </header>
 
-        <!-- 6 Image Gallery Section -->
+        <!-- Gallery Section -->
         <section id="gallery">
-            <h2><i class="fas fa-images"></i> Highlights & Gallery</h2>
+            <h2><i class="fas fa-images"></i> Gallery Highlights</h2>
             <div class="gallery-grid">
-                <!-- Personal Image 1 -->
+                <!-- Personal Images -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/personal1.jpg" alt="Youssef Adel Profile">
-                    <div class="gallery-caption">Personal Profile</div>
+                    <img src="Assests/Images/perfil.png" alt="Youssef Adel Profile" class="transparent-bg">
+                    <div class="gallery-caption">Youssef Adel (Cutout)</div>
                 </div>
-                <!-- Personal Image 2 -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/personal2.jpg" alt="Youssef Adel Activity">
-                    <div class="gallery-caption">ICPC / Event Participation</div>
+                    <img src="Assests/Images/about.jpg" alt="About Youssef">
+                    <div class="gallery-caption">About Me</div>
                 </div>
-                <!-- Personal Image 3 -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/personal3.jpg" alt="Youssef Adel Internship">
-                    <div class="gallery-caption">GDG / Internship Days</div>
+                    <img src="Assests/Images/project.png" alt="Youssef Projects">
+                    <div class="gallery-caption">Community & Work</div>
                 </div>
-                <!-- Tech / Aesthetic Image 1 -->
+
+                <!-- Terminal Screenshots & Dashboards -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/tech1.jpg" alt="Developer Workspace Setup">
-                    <div class="gallery-caption">Development Environment</div>
+                    <img src="Assests/Images/portfolio1.jpg" alt="Java Employee Management Menu">
+                    <div class="gallery-caption">Java System Terminal</div>
                 </div>
-                <!-- Tech / Aesthetic Image 2 -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/tech2.jpg" alt="Code & Algorithms">
-                    <div class="gallery-caption">Competitive Programming & Data</div>
+                    <img src="Assests/Images/portfolio2.jpg" alt="C Supermarket System Menu">
+                    <div class="gallery-caption">C System Terminal</div>
                 </div>
-                <!-- Tech / Aesthetic Image 3 -->
                 <div class="gallery-item">
-                    <img src="Assests/Images/tech3.jpg" alt="Database Architecture">
-                    <div class="gallery-caption">Database & System Design</div>
+                    <img src="Assests/Images/tableau_dashboard.png" alt="Tableau Sales & Profit Dashboard">
+                    <div class="gallery-caption">Tableau Sales Dashboard</div>
                 </div>
             </div>
         </section>
@@ -379,52 +423,56 @@
             <h2><i class="fas fa-laptop-code"></i> Previous Projects</h2>
             <div class="projects-grid">
                 
-                <!-- Project 1 -->
+                <!-- Project 1: Java Employee Management System -->
                 <div class="project-card">
-                    <img src="Assests/Images/project1.jpg" alt="Employee Management System" class="project-img">
+                    <!-- Point to your terminal image file inside Assests/Images/ -->
+                    <img src="Assests/Images/portfolio1.jpg" alt="Employee Management Terminal Screenshot" class="project-img">
                     <div class="project-body">
                         <div class="project-title">Employee Management System</div>
-                        <p class="project-desc">A console-based management program designed to add, search, remove, calculate payroll, and filter employee records by type.</p>
-                        <div class="tags" style="margin-bottom: 15px;">
-                            <span class="tag">C++</span>
+                        <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type[cite: 7].</p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Payroll Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Youssef-Adel843/Employee-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: C Supermarket Management System -->
+                <div class="project-card">
+                    <!-- Point to your terminal image file inside Assests/Images/ -->
+                    <img src="Assests/Images/portfolio2.jpg" alt="Supermarket Management Terminal Screenshot" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title">Supermarket Management System</div>
+                        <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing[cite: 6].</p>
+                        <div class="tags">
+                            <span class="tag">C</span>
                             <span class="tag">Data Structures</span>
+                            <span class="tag">System Modes</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="https://github.com/Youssef-Adel843/Supermarket-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 3: Tableau Sales & Profit Dashboard -->
                 <div class="project-card">
-                    <img src="Assests/Images/project2.jpg" alt="Database Integration & Analytics" class="project-img">
+                    <!-- Save your 3rd picture in Assests/Images/ tableau_dashboard.png -->
+                    <img src="Assests/Images/tableau_dashboard.png" alt="Tableau Sales and Profit Dashboard" class="project-img">
                     <div class="project-body">
-                        <div class="project-title">SQL Analytics & Reporting</div>
-                        <p class="project-desc">Database project involving ERD modeling, relational mapping, and complex SQL queries for automated reporting and data integration[cite: 1].</p>
-                        <div class="tags" style="margin-bottom: 15px;">
-                            <span class="tag">SQL</span>
-                            <span class="tag">ERD</span>
-                            <span class="tag">Data Analysis</span>
+                        <div class="project-title">Tableau Business Intelligence Dashboard</div>
+                        <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits.</p>
+                        <div class="tags">
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Data Analytics</span>
+                            <span class="tag">BI Visualization</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="Assests/Images/project3.jpg" alt="AI Assisted Web Interface" class="project-img">
-                    <div class="project-body">
-                        <div class="project-title">AI-Assisted Web Portfolio</div>
-                        <p class="project-desc">Interactive portfolio website built using Google's Stitch UI concepts and developed with AI workflow tools[cite: 1].</p>
-                        <div class="tags" style="margin-bottom: 15px;">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">Git</span>
-                            <span class="tag">AI Tools</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="Assests/Images/tableau_dashboard.png" target="_blank" class="btn"><i class="fas fa-expand"></i> View Full Image</a>
                         </div>
                     </div>
                 </div>
@@ -517,18 +565,20 @@
                 <div class="skill-category">
                     <h3>Programming</h3>
                     <div class="tags">
-                        <span class="tag">C++</span>
                         <span class="tag">Java</span>
-                        <span class="tag">HTML</span>
+                        <span class="tag">C</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">HTML/CSS</span>
                         <span class="tag">SQL</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Databases & Analysis</h3>
+                    <h3>Databases & Analytics</h3>
                     <div class="tags">
+                        <span class="tag">Tableau</span>
                         <span class="tag">Database Design (ERD)</span>
                         <span class="tag">SQL Analysis</span>
-                        <span class="tag">Reporting & Integration</span>
+                        <span class="tag">Data Visualization</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -542,13 +592,38 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <p>&copy; 2026 Youssef Adel. All rights reserved.</p>
         </footer>
     </div>
 
-</body>
-</html>
+    <!-- Toast Notification -->
+    <div id="toast">CV Link copied to clipboard!</div>
+
+    <!-- Custom Script -->
+    <script src="Assests/JS/main.js"></script>
+    <script>
+        function shareCV() {
+            const cvUrl = new URL('Assests/pdf/Youssef_Adel_CV.pdf', window.location.href).href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Youssef Adel CV',
+                    text: 'Check out Youssef Adel\'s CV',
+                    url: cvUrl
+                }).catch(() => copyToClipboard(cvUrl));
+            } else {
+                copyToClipboard(cvUrl);
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById("toast");
+                toast.className = "show";
+                setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+            });
+        }
+    </script>
 </body>
 </html>
