@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS Path Updated to match your folder -->
+    <!-- CSS Paths -->
     <link rel="stylesheet" href="Assets/css/Swiper.Bundle.min.css">
     <link rel="stylesheet" href="Assets/css/Style.css">
     
@@ -43,31 +43,53 @@
             padding: 20px;
         }
 
-        /* Header Section */
+        /* Header Layout with Profile Image */
         header {
-            text-align: center;
-            padding: 50px 20px 30px;
+            padding: 40px 20px 30px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        header p.subtitle {
+        .profile-img-top {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .header-text p.subtitle {
             font-size: 1.2rem;
             color: var(--accent-color);
-            margin-bottom: 15px;
             font-weight: 600;
+            margin-top: 5px;
         }
 
         header p.bio {
             color: var(--text-muted);
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 25px;
             font-size: 1rem;
+            text-align: center;
         }
 
         .social-links {
@@ -123,49 +145,6 @@
             color: var(--text-color);
         }
 
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            height: 220px;
-            background-color: var(--card-bg);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item img.transparent-bg {
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 8px 12px;
-            background: rgba(15, 23, 42, 0.85);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -177,7 +156,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            overflow: hidden;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             transition: transform 0.2s ease;
@@ -188,32 +167,17 @@
             border-color: var(--accent-color);
         }
 
-        .project-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-            background-color: #000000;
-        }
-
-        .project-body {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
         .project-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--text-color);
         }
 
         .project-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             flex-grow: 1;
         }
 
@@ -221,7 +185,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .tag {
@@ -237,11 +201,6 @@
             display: flex;
             gap: 10px;
             margin-top: auto;
-        }
-
-        .project-links a {
-            font-size: 0.85rem;
-            padding: 6px 12px;
         }
 
         /* Experience & Education Cards */
@@ -360,7 +319,9 @@
         }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 2.2rem; }
+            .header-content { flex-direction: column; text-align: center; }
+            .header-text { text-align: center; }
+            .header-text h1 { font-size: 2.2rem; }
             .card-header { flex-direction: column; }
         }
     </style>
@@ -368,55 +329,29 @@
 <body>
 
     <div class="container">
-        <!-- Header Section -->
+        <!-- Header Section with Profile Picture at the Start -->
         <header>
-            <h1>Youssef Adel</h1>
-            <p class="subtitle">Software Developer | Data Analyst | Problem Solver</p>
+            <div class="header-content">
+                <!-- Second image (about.jpg) positioned right next to your name -->
+                <img src="Assets/Images/about.jpg" alt="Youssef Adel" class="profile-img-top">
+                <div class="header-text">
+                    <h1>Youssef Adel</h1>
+                    <p class="subtitle">Software Developer | Data Analyst | Problem Solver</p>
+                </div>
+            </div>
+
             <p class="bio">
                 Computer Science student at AASTMT experienced in Java, C++, C, SQL, and modern web application development[cite: 1]. Former ICPC contestant skilled in rapid problem solving and AI workflow integration[cite: 1].
             </p>
+
             <div class="social-links">
                 <a href="mailto:youssefmarkos887@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
-                <!-- CV Path Updated -->
                 <a href="Assets/pdf/Youssef_Adel_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> View CV</a>
                 <button onclick="shareCV()" class="btn"><i class="fas fa-share-alt"></i> Share CV Link</button>
                 <a href="https://www.linkedin.com/in/youssef-adel-markos/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/Youssef-Adel843" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </header>
-
-        <!-- Gallery Section -->
-        <section id="gallery">
-            <h2><i class="fas fa-images"></i> Gallery Highlights</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="Assets/Images/perfil.png" alt="Youssef Adel Profile" class="transparent-bg">
-                    <div class="gallery-caption">Youssef Adel (Cutout)</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Assets/Images/about.jpg" alt="About Youssef">
-                    <div class="gallery-caption">About Me</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Assets/Images/project.png" alt="Youssef Projects">
-                    <div class="gallery-caption">Community & Work</div>
-                </div>
-
-                <!-- Updated to match your exact file names -->
-                <div class="gallery-item">
-                    <img src="Assets/Images/employee_system.PNG" alt="Java Employee Management Menu">
-                    <div class="gallery-caption">Java System Terminal</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Assets/Images/supermarket_system.PNG" alt="C Supermarket System Menu">
-                    <div class="gallery-caption">C System Terminal</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Assets/Images/tableau_dashboard.PNG" alt="Tableau Sales & Profit Dashboard">
-                    <div class="gallery-caption">Tableau Sales Dashboard</div>
-                </div>
-            </div>
-        </section>
 
         <!-- Previous Projects Section -->
         <section id="projects">
@@ -425,52 +360,40 @@
                 
                 <!-- Project 1: Java Employee Management System -->
                 <div class="project-card">
-                    <img src="Assets/Images/employee_system.PNG" alt="Employee Management Terminal Screenshot" class="project-img">
-                    <div class="project-body">
-                        <div class="project-title">Employee Management System</div>
-                        <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type[cite: 7].</p>
-                        <div class="tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">OOP</span>
-                            <span class="tag">Payroll Logic</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Youssef-Adel843/Employee-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
-                        </div>
+                    <div class="project-title">Employee Management System</div>
+                    <p class="project-desc">A Java console application that enables adding, removing, updating salaries, calculating total payroll, and searching employees by name or type[cite: 7].</p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Payroll Logic</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Youssef-Adel843/Employee-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
                     </div>
                 </div>
 
                 <!-- Project 2: C Supermarket Management System -->
                 <div class="project-card">
-                    <img src="Assets/Images/supermarket_system.PNG" alt="Supermarket Management Terminal Screenshot" class="project-img">
-                    <div class="project-body">
-                        <div class="project-title">Supermarket Management System</div>
-                        <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing[cite: 6].</p>
-                        <div class="tags">
-                            <span class="tag">C</span>
-                            <span class="tag">Data Structures</span>
-                            <span class="tag">System Modes</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Youssef-Adel843/Supermarket-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
-                        </div>
+                    <div class="project-title">Supermarket Management System</div>
+                    <p class="project-desc">A C-based management terminal supporting multi-role operations, including Manager Mode for inventory/sales control and Customer Mode for purchasing[cite: 6].</p>
+                    <div class="tags">
+                        <span class="tag">C</span>
+                        <span class="tag">Data Structures</span>
+                        <span class="tag">System Modes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Youssef-Adel843/Supermarket-Management-System" target="_blank" class="btn"><i class="fab fa-github"></i> View Code</a>
                     </div>
                 </div>
 
                 <!-- Project 3: Tableau Sales & Profit Dashboard -->
                 <div class="project-card">
-                    <img src="Assets/Images/tableau_dashboard.PNG" alt="Tableau Sales and Profit Dashboard" class="project-img">
-                    <div class="project-body">
-                        <div class="project-title">Tableau Business Intelligence Dashboard</div>
-                        <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits[cite: 8].</p>
-                        <div class="tags">
-                            <span class="tag">Tableau</span>
-                            <span class="tag">Data Analytics</span>
-                            <span class="tag">BI Visualization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="Assets/Images/tableau_dashboard.PNG" target="_blank" class="btn"><i class="fas fa-expand"></i> View Full Image</a>
-                        </div>
+                    <div class="project-title">Tableau Business Intelligence Dashboard</div>
+                    <p class="project-desc">Comprehensive data visualization dashboard analyzing product category contributions, sales trends over order dates, discount distributions, and regional profits[cite: 8].</p>
+                    <div class="tags">
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">BI Visualization</span>
                     </div>
                 </div>
 
@@ -597,7 +520,7 @@
     <!-- Toast Notification -->
     <div id="toast">CV Link copied to clipboard!</div>
 
-    <!-- JS Paths Updated to match your folder structure -->
+    <!-- JS Paths -->
     <script src="Assets/js/swiper-bundle.min.js"></script>
     <script src="Assets/js/main.js"></script>
     <script>
